@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Mis 15 Años - Invitación</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- VARIABLES DE COLOR --- */
+      :root {
+        --primary-pink: #eebdcbdd; /* Rosa suave */
+        --dark-pink: #b06d80; /* Rosa oscuro para texto */
+        --gold: #c5a059; /* Dorado para detalles */
+        --white: #ffffff;
+        --bg-overlay: rgba(255, 255, 255, 0.85);
+      }
+
+      /* --- ESTILOS GENERALES --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: url('https://images.unsplash.com/photo-1518659685741-99522252a1b9?q=80&w=2000&auto=format&fit=crop')
+          no-repeat center center fixed;
+        background-size: cover;
+        color: #4a4a4a;
+        overflow-x: hidden;
+      }
+
+      /* --- PANTALLA DE BIENVENIDA (Para activar música) --- */
+      #welcome-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1s ease;
+      }
+
+      .envelope-icon {
+        font-size: 4rem;
+        color: var(--dark-pink);
+        animation: bounce 2s infinite;
+        margin-bottom: 20px;
+      }
+
+      /* --- CONTENEDOR PRINCIPAL --- */
+      .container {
+        max-width: 600px; /* Ancho tipo móvil */
+        margin: 0 auto;
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px); /* Efecto vidrio */
+        min-height: 100vh;
+        padding: 40px 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        opacity: 0; /* Empieza oculto para la animación */
+        transform: translateY(20px);
+        transition: all 1.5s ease;
+      }
+
+      .container.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- TIPOGRAFÍA --- */
+      h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 4.5rem;
+        color: var(--dark-pink);
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+      }
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      /* --- IMAGEN DE LA QUINCEAÑERA --- */
+      .photo-frame {
+        width: 250px;
+        height: 350px;
+        margin: 0 auto 40px;
+        border: 2px solid var(--gold);
+        padding: 10px;
+        border-radius: 50% 50% 0 0; /* Forma de arco moderna */
+        position: relative;
+      }
+
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 48% 48% 0 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* --- DETALLES --- */
+      .divider {
+        height: 2px;
+        width: 100px;
+        background: var(--gold);
+        margin: 30px auto;
+      }
+
+      .details-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .detail-item {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid white;
+      }
+
+      .detail-icon {
+        font-size: 2rem;
+        color: var(--dark-pink);
+        margin-bottom: 10px;
+      }
+
+      /* --- BOTONES --- */
+      .btn {
+        display: inline-block;
+        padding: 15px 40px;
+        background: linear-gradient(45deg, var(--dark-pink), #d48ba0);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(176, 109, 128, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 20px;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(176, 109, 128, 0.6);
+      }
+
+      .btn-whatsapp {
+        background: #25d366;
+        margin-top: 10px;
+      }
+
+      /* --- CONTROL DE MÚSICA --- */
+      .music-control {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        cursor: pointer;
+        color: var(--dark-pink);
+        font-size: 1.2rem;
+        animation: spin 4s linear infinite;
+        animation-play-state: paused; /* Se activa con JS */
+      }
+
+      /* --- ANIMACIONES --- */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Clases para animación de scroll */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .fade-in-up.appear {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <audio
+      id="bg-music"
+      loop
+    >
+      <source
+        src="./CHIQUITITA- Instrumental Harp.mp3"
+        type="audio/mpeg"
+      />
+      Tu navegador no soporta audio.
+    </audio>
+
+    <div id="welcome-screen">
+      <div class="envelope-icon">
+        <i class="fa-regular fa-envelope-open"></i>
+      </div>
+      <h2 style="color: var(--dark-pink)">Tienes una invitación</h2>
+      <p>De: Familia Ruíz</p>
+      <button
+        class="btn"
+        onclick="enterSite()"
+      >
+        ABRIR INVITACIÓN
+      </button>
+    </div>
+
+    <div
+      class="music-control"
+      id="music-btn"
+      onclick="toggleMusic()"
+    >
+      <i class="fas fa-music"></i>
+    </div>
+
+    <div
+      class="container"
+      id="main-content"
+    >
+      <header>
+        <div class="fade-in-up">
+          <p style="letter-spacing: 2px; text-transform: uppercase">
+            Te invitamos a celebrar
+          </p>
+          <h1>Cristiana</h1>
+          <h2>Mis 15 Años</h2>
+        </div>
+
+        <div class="photo-frame fade-in-up">
+          <img
+            src="/Cris.jpeg"
+            alt="Quinceañera"
+          />
+        </div>
+
+        <p class="fade-in-up">
+          "Hay momentos en la vida que son especiales por sí solos,<br />
+          compartirlos con las personas que quieres,<br />
+          los convierte en momentos inolvidables."
+        </p>
+      </header>
+
+      <div class="divider"></div>
+
+      <section class="details-section">
+        <div class="detail-item fade-in-up">
+          <i class="fas fa-calendar-day detail-icon"></i>
+          <h3>Sábado, 14 de Marzo</h3>
+          <p>2024</p>
+        </div>
+
+        <div class="detail-item fade-in-up">
+          <i class="fas fa-clock detail-icon"></i>
+          <h3>Recepción</h3>
+          <p>7:00 PM</p>
+        </div>
+
+        <div class="detail-item fade-in-up">
+          <i class="fas fa-map-marker-alt detail-icon"></i>
+          <h3>Hotel el Convento</h3>
+          <p>Ciudad León, León</p>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            style="color: var(--dark-pink); font-size: 0.9rem"
+            >Ver en Mapa</a
+          >
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <footer class="fade-in-up">
+        <h3>Confirmación de Asistencia</h3>
+        <p>Esperamos contar con tu presencia.</p>
+
+        <a
+          href="https://wa.me/+50578055043?text=Hola,%20muchas%20felicidades%20a%20Sofia.%20Confirmo%20mi%20asistencia%20al%20evento.%20Soy:%20"
+          class="btn btn-whatsapp"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+        </a>
+      </footer>
+
+      <br /><br />
+    </div>
+
+    <script>
+      // --- LÓGICA DE JAVASCRIPT ---
+
+      const music = document.getElementById('bg-music');
+      const musicBtn = document.getElementById('music-btn');
+      const welcomeScreen = document.getElementById('welcome-screen');
+      const mainContent = document.getElementById('main-content');
+
+      // Función para entrar al sitio (activada por el botón de bienvenida)
+      function enterSite() {
+        // Ocultar pantalla de bienvenida
+        welcomeScreen.style.opacity = '0';
+        setTimeout(() => {
+          welcomeScreen.style.display = 'none';
+          mainContent.classList.add('visible'); // Mostrar contenido principal
+        }, 1000);
+
+        // Intentar reproducir música
+        playMusic();
+      }
+
+      // Función para reproducir/pausar música
+      function toggleMusic() {
+        if (music.paused) {
+          playMusic();
+        } else {
+          pauseMusic();
+        }
+      }
+
+      function playMusic() {
+        music.play();
+        musicBtn.style.animationPlayState = 'running'; // Girar icono
+        musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+
+      function pauseMusic() {
+        music.pause();
+        musicBtn.style.animationPlayState = 'paused'; // Parar giro
+        musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+      }
+
+      // --- ANIMACIONES AL HACER SCROLL (Intersection Observer) ---
+      const observerOptions = {
+        threshold: 0.2,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+          }
+        });
+      }, observerOptions);
+
+      // Seleccionar todos los elementos que queremos animar
+      document.querySelectorAll('.fade-in-up').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

@@ -23,7 +23,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   /* AQUÍ CAMBIAMOS EL FONDO: Busca una imagen de flores en los bordes */
-  background: url('./Fondo2.jpg') no-repeat center center;
+  background: url('./Fondo.jpg') no-repeat center center;
   /* Si tienes tu propia imagen, borra la url de arriba y pon la ruta de tu imagen, ej: url('mifondo.jpg') */
   background-size: cover;
   color: #4a4a4a;

@@ -9,7 +9,7 @@
     255,
     255,
     255,
-    0.514
+    0.7
   ); /* Un poco más opaco para que se lea bien */
 }
 
@@ -23,7 +23,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   /* AQUÍ CAMBIAMOS EL FONDO: Busca una imagen de flores en los bordes */
-  background: url('./Fondo.jpg') no-repeat center center;
+  background: url('./Fondo2.jpg') no-repeat center center;
   /* Si tienes tu propia imagen, borra la url de arriba y pon la ruta de tu imagen, ej: url('mifondo.jpg') */
   background-size: cover;
   color: #4a4a4a;
@@ -58,7 +58,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   background: var(--bg-overlay);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   min-height: 100vh;
   padding: 40px 20px;
   box-shadow: 0 0 30px rgba(176, 109, 128, 0.2);

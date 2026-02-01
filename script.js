@@ -14,7 +14,7 @@ function enterSite() {
 
     // Iniciar contador cuando se entra al sitio
     startCountdown();
-  }, 1000);
+  }, 500);
   playMusic();
 }
 

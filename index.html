@@ -4,23 +4,31 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Mis 15 Años - Invitación</title>
+    <title>Mis 15 Años - Cristiana</title>
     <link
       rel="icon"
       type="image/png"
       href="/xvicon.png"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-
     <link
       rel="stylesheet"
       href="./styles.css"
@@ -30,26 +38,31 @@
     <audio
       id="bg-music"
       loop
+      preload="auto"
     >
       <source
         src="./FondoMusic.mp3"
         type="audio/mpeg"
       />
-      Tu navegador no soporta audio.
     </audio>
 
     <div id="welcome-screen">
-      <div class="envelope-icon">
-        <i class="fa-regular fa-envelope-open"></i>
+      <div class="envelope-content">
+        <div class="bouncing-envelope">
+          <i class="fa-regular fa-envelope"></i>
+          <div class="crown-seal"><i class="fa-solid fa-crown"></i></div>
+        </div>
+
+        <h2 class="welcome-title">Familia Barba Ruíz</h2>
+        <p class="welcome-subtitle">Tiene el honor de invitarte</p>
+
+        <button
+          class="btn-enter"
+          onclick="enterSite()"
+        >
+          <span class="btn-text">ABRIR INVITACIÓN</span>
+        </button>
       </div>
-      <h2 style="color: var(--dark-pink)">Tienes una invitación</h2>
-      <p>De: Familia Barba Ruíz</p>
-      <button
-        class="btn"
-        onclick="enterSite()"
-      >
-        ABRIR INVITACIÓN
-      </button>
     </div>
 
     <div
@@ -61,162 +74,121 @@
     </div>
 
     <div
-      class="container"
+      class="main-wrapper"
       id="main-content"
     >
-      <header>
-        <div class="fade-in-up">
-          <p
-            style="
-              letter-spacing: 2px;
-              text-transform: uppercase;
-              font-size: 0.9rem;
-            "
-          >
-            Te invitamos a celebrar
-          </p>
-          <h2>Mis 15 Años</h2>
-        </div>
+      <header class="card-section fade-element">
+        <p class="intro-text">Celebra con nosotros</p>
+        <h1 class="main-title">Mis 15 Años</h1>
 
-        <div class="photo-frame fade-in-up">
+        <div class="photo-frame">
           <img
-            src="/Cris.jpeg"
-            alt="Cristiana Quinceañera"
+            src="./Cris.jpeg"
+            alt="Cristiana"
+            loading="lazy"
           />
+          <div class="frame-border"></div>
         </div>
 
-        <h1>Cristiana</h1>
+        <h2 class="name-title">Cristiana</h2>
 
-        <p
-          class="fade-in-up"
-          style="font-style: italic"
-        >
-          "Hay momentos en la vida que son especiales por sí solos,<br />
-          compartirlos con las personas que quieres,<br />
-          los convierte en momentos inolvidables."
+        <p class="quote">
+          "Hay momentos inolvidables que se atesoran en el corazón para siempre,
+          por eso quiero que compartas conmigo esta noche mágica."
         </p>
-
-        <div class="fade-in-up">
-          <div id="countdown">
-            <div class="time-box">
-              <span
-                class="time-number"
-                id="days"
-                >00</span
-              >
-              <span class="time-label">Días</span>
-            </div>
-            <div class="time-box">
-              <span
-                class="time-number"
-                id="hours"
-                >00</span
-              >
-              <span class="time-label">Hrs</span>
-            </div>
-            <div class="time-box">
-              <span
-                class="time-number"
-                id="minutes"
-                >00</span
-              >
-              <span class="time-label">Min</span>
-            </div>
-            <div class="time-box">
-              <span
-                class="time-number"
-                id="seconds"
-                >00</span
-              >
-              <span class="time-label">Seg</span>
-            </div>
-          </div>
-          <div class="wait-text">¡Te esperamos!</div>
-        </div>
       </header>
 
-      <div class="divider"></div>
-
-      <section class="details-section">
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-calendar-day detail-icon"></i>
-          <h3>Sábado, 14 de Marzo</h3>
-          <p>2026</p>
-        </div>
-
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-clock detail-icon"></i>
-          <h3>Tedeum</h3>
-          <h3>Iglesia Ermita de Dolores</h3>
-          <p>10:00 AM</p>
-        </div>
-
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-clock detail-icon"></i>
-          <h3>Recepción</h3>
-          <p>12:00 PM</p>
-        </div>
-
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-map-marker-alt detail-icon"></i>
-          <h3>Punto Azzurro</h3>
-          <p>
-            Primera entrada Rpto. San Mateo 100 mts al Sur, Barrio Sutiaba;
-            León, Nicaragua.
-          </p>
-          <a
-            href="https://maps.app.goo.gl/1NkavTpsKmgbKRjLA"
-            target="_blank"
-            class="btn"
-            style="padding: 10px 20px; font-size: 0.8rem; margin-top: 10px"
-            >Ver Ubicación</a
-          >
-        </div>
-
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-tshirt detail-icon"></i>
-          <h3>Código de Vestimenta</h3>
-          <div class="color-palette">
-            <div
-              class="color-circle bg-white"
-              title="Blanco"
-            ></div>
-            <div
-              class="color-circle bg-cream"
-              title="Crema"
-            ></div>
+      <section class="card-section fade-element">
+        <div id="countdown">
+          <div class="time-box">
+            <span id="days">00</span><small>Días</small>
           </div>
-          <p style="font-size: 0.8rem; margin-top: 5px">Blanco y Crema</p>
+          <div class="time-box">
+            <span id="hours">00</span><small>Hrs</small>
+          </div>
+          <div class="time-box">
+            <span id="minutes">00</span><small>Min</small>
+          </div>
+          <div class="time-box">
+            <span id="seconds">00</span><small>Seg</small>
+          </div>
+        </div>
+        <p class="wait-msg">¡La cuenta regresiva ha comenzado!</p>
+      </section>
+
+      <section class="card-section fade-element">
+        <div class="detail-row">
+          <i class="far fa-calendar-alt icon-gold"></i>
+          <div>
+            <h3>Sábado, 14 de Marzo</h3>
+            <p>2026</p>
+          </div>
+        </div>
+        <hr class="separator" />
+
+        <div class="detail-row">
+          <i class="fas fa-church icon-gold"></i>
+          <div>
+            <h3>Tedeum</h3>
+            <p><strong>10:00 AM</strong> - Iglesia Ermita de Dolores</p>
+          </div>
+        </div>
+        <hr class="separator" />
+
+        <div class="detail-row">
+          <i class="fas fa-glass-cheers icon-gold"></i>
+          <div>
+            <h3>Recepción</h3>
+            <p><strong>12:00 PM</strong> - Punto Azzurro</p>
+            <p class="address">
+              Primera entrada Rpto. San Mateo 100 mts al Sur.
+            </p>
+            <a
+              href="https://goo.gl/maps/TU_LINK_AQUI"
+              target="_blank"
+              class="btn-map"
+            >
+              Ver Ubicación GPS
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-section fade-element">
+        <div class="dress-code">
+          <i class="fas fa-tshirt icon-gold"></i>
+          <h3>Código de Vestimenta</h3>
+          <div class="colors">
+            <span class="color-dot white"></span>
+            <span class="color-dot cream"></span>
+          </div>
+          <small>Blanco & Crema</small>
         </div>
 
-        <div class="detail-item fade-in-up">
-          <i class="fas fa-gift detail-icon"></i>
+        <div class="gift-section">
+          <i class="fas fa-gift icon-gold"></i>
           <h3>Lluvia de Sobres</h3>
-          <p class="gift-text">
-            "Su presencia es mi mayor regalo. Pero si desean tener un detalle
-            conmigo, podrán depositarlo en el cofre de la entrada. Cualquier
-            presente que nazca de su corazón será recibido con mucho amor."
+          <p>
+            "Su presencia es mi mayor regalo, pero si desean tener un detalle
+            conmigo, podrán depositarlo en el cofre de la entrada."
           </p>
         </div>
       </section>
 
-      <div class="divider"></div>
-
-      <footer class="fade-in-up">
-        <h3>Confirmación de Asistencia</h3>
-        <p>Por favor, confirma tu asistencia antes del 28 de Febrero.</p>
-
+      <footer class="fade-element">
+        <p>Por favor confirma tu asistencia antes del 28 de Febrero.</p>
         <a
-          href="https://wa.me/+50586476706?text=Hola,%20muchas%20felicidades%20a%20Cristiana.%20Confirmo%20mi%20asistencia%20al%20evento.%20Soy:%20"
-          class="btn btn-whatsapp"
+          href="https://wa.me/+50586476706?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Cristiana"
+          class="btn-whatsapp"
           target="_blank"
         >
-          <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+          <i class="fab fa-whatsapp"></i> CONFIRMAR ASISTENCIA
         </a>
       </footer>
 
-      <br /><br />
+      <br /><br /><br />
     </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
